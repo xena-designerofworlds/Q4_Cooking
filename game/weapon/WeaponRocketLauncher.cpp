@@ -128,7 +128,7 @@ void rvWeaponRocketLauncher::Spawn ( void ) {
 		anim->SetPlaybackRate ( rate );
 	}
 
-	SetState ( "Raise", 0 );	
+	SetState ( "Fire", 0 );	
 	SetRocketState ( "Rocket_Idle", 0 );
 }
 
@@ -447,7 +447,7 @@ stateResult_t rvWeaponRocketLauncher::State_Fire ( const stateParms_t& parms ) {
 		case STAGE_INIT:
 			nextAttackTime = gameLocal.time + (fireRate * owner->PowerUpModifier ( PMOD_FIRERATE ));		
 			Attack ( false, 1, spread, 0, 1.0f );
-			PlayAnim ( ANIMCHANNEL_LEGS, "fire", parms.blendFrames );	
+			PlayAnim ( ANIMCHANNEL_LEGS, "fire", parms.blendFrames );
 			return SRESULT_STAGE ( STAGE_WAIT );
 	
 		case STAGE_WAIT:			
