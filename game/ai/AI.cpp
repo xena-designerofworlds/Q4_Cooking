@@ -2472,14 +2472,14 @@ bool idAI::Attack ( const char* attackName, jointHandle_t joint, idEntity* targe
 	if ( !attackDict ) {
 		gameLocal.Error ( "could not find attack entityDef 'def_attack_%s (%s)' on AI entity %s", attackName, spawnArgs.GetString ( va("def_attack_%s", attackName ) ), GetName ( ) );
 	}
-
+	
 	// Melee Attack?
 	if ( spawnArgs.GetBool ( va("attack_%s_melee", attackName ), "0" ) ) {
 		return AttackMelee ( attackName, attackDict );
 	}
 
 	// Ranged attack (hitscan or projectile)?
-	return ( AttackRanged ( attackName, attackDict, joint, target, pushVelocity ) != NULL );
+	return false;
 }
 
 /*

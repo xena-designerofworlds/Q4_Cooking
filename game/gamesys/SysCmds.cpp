@@ -3016,6 +3016,25 @@ void Cmd_TestClientModel_f( const idCmdArgs& args ) {
 
 // RAVEN END
 
+void What_IsThis(const idCmdArgs& commandargs) {
+	idEntity* ent;
+	int e;
+	idPlayer* thePlayer;
+	idVec3 origin, dir;
+	idMat3 angleMatrix;
+	idDict args;
+	idAngles angles;
+
+	args.Set("range", "1000");
+	if (!thePlayer) return;
+	thePlayer->GetViewPos(origin, angleMatrix);
+	angles = angleMatrix.ToAngles();
+	dir = angles.ToForward();
+	ent = gameLocal.HitScan(args, origin, dir, origin, thePlayer);
+	if (!ent)return;
+	gameLocal.Warning("", gameLocal.entities[e]->name.c_str());
+	}
+
 void Cmd_CheckSave_f( const idCmdArgs &args );
 
 void Cmd_ShuffleTeams_f( const idCmdArgs& args ) {
@@ -3053,6 +3072,7 @@ void idGameLocal::InitConsoleCommands( void ) {
 //	cmdSystem->AddCommand( "writeGameState",		WriteGameState_f,			CMD_FL_GAME,				"write game state" );
 //	cmdSystem->AddCommand( "testSaveGame",			TestSaveGame_f,				CMD_FL_GAME|CMD_FL_CHEAT,	"test a save game for a level" );
 // RAVEN END
+	cmdSystem->AddCommand( "whatisthis",				What_IsThis,				CMD_FL_GAME,				"might work, shows stuff");
 	cmdSystem->AddCommand( "game_memory",			idClass::DisplayInfo_f,		CMD_FL_GAME,				"displays game class info" );
 	cmdSystem->AddCommand( "listClasses",			idClass::ListClasses_f,		CMD_FL_GAME,				"lists game classes" );
 	cmdSystem->AddCommand( "listThreads",			idThread::ListThreads_f,	CMD_FL_GAME|CMD_FL_CHEAT,	"lists script threads" );

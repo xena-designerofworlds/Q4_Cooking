@@ -7147,7 +7147,8 @@ void idPlayer::UpdateFocus( void ) {
 				continue;
 			}
 
-			if ( pt.guiId >= 1 && pt.guiId <= MAX_RENDERENTITY_GUI ) {
+			if ( pt
+				Id >= 1 && pt.guiId <= MAX_RENDERENTITY_GUI ) {
 				ui = focusGUIrenderEntity->gui[ pt.guiId-1 ];
 			}
 			
