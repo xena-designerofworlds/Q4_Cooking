@@ -411,7 +411,7 @@ stateResult_t WeaponNapalmGun::State_Fire( const stateParms_t& parms ) {
 
 				PlayAnim ( ANIMCHANNEL_ALL, "fire", parms.blendFrames );
 			}
-
+			
 			previousAmmo = AmmoInClip();
 			return SRESULT_STAGE ( STAGE_WAIT );
 	

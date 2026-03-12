@@ -7147,8 +7147,7 @@ void idPlayer::UpdateFocus( void ) {
 				continue;
 			}
 
-			if ( pt
-				Id >= 1 && pt.guiId <= MAX_RENDERENTITY_GUI ) {
+			if ( pt.guiId >= 1 && pt.guiId <= MAX_RENDERENTITY_GUI ) {
 				ui = focusGUIrenderEntity->gui[ pt.guiId-1 ];
 			}
 			
@@ -8582,11 +8581,11 @@ void idPlayer::PerformImpulse( int impulse ) {
 		case IMPULSE_108:	break; // Unused
 		case IMPULSE_109:	AttemptToBuyItem( "weapon_napalmgun" );				break;
 		case IMPULSE_110:	/* AttemptToBuyItem( "weapon_dmg" );*/				break;
-		case IMPULSE_111:	break; // Unused
-		case IMPULSE_112:	break; // Unused
-		case IMPULSE_113:	break; // Unused
-		case IMPULSE_114:	break; // Unused
-		case IMPULSE_115:	break; // Unused
+		case IMPULSE_111:	hud->HandleNamedEvent("cookwithNapalmGun"); break;
+		case IMPULSE_112:	hud->HandleNamedEvent("cookwithLightningGun"); break; // Unused
+		case IMPULSE_113:	hud->HandleNamedEvent("cookwithGrenadeLauncher"); break; // Unused
+		case IMPULSE_114:	hud->HandleNamedEvent("cookwithdmg"); break; // Unused
+		case IMPULSE_115:	hud->HandleNamedEvent("cookwithShotGun"); break; // Unused
 		case IMPULSE_116:	break; // Unused
 		case IMPULSE_117:	break; // Unused
 		case IMPULSE_118:	AttemptToBuyItem( "item_armor_small" );				break;
